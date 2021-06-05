@@ -1,0 +1,27 @@
+<%= form_with(model: @plan, local: true) do |form| %>
+
+<legend class="mt-3">ルーティン</legend>
+  <div class="mb-3">
+    <label for="disabledTextInput" class="form-label">タスク</label>
+    <%= form.text_field :task, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <label for="disabledTextInput" class="form-label">目標</label>
+    <%= form.text_field :detail, class:"form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <label for="disabledTextInput" class="form-label">メモ</label>
+    <%= form.text_area :memo, class:"form-control" %>
+  </div>
+
+  <div>
+      <%= form.datetime_select :start_time %>
+  </div>
+
+  <div class="submit mt-3">
+    <%= form.submit "登録", class:"submit btn btn-primary mr-2"%>
+  </div>
+
+<% end %>

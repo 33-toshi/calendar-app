@@ -1,0 +1,13 @@
+ja:
+      simple_calendar:
+        previous: "<<"
+        next: ">>"
+        week: "今週"
+        
+      time:
+        am: 午前
+        formats:
+          default: "%Y年%m月%d日(%a) %H時%M分"
+          long: "%Y/%m/%d %H:%M"
+          short: "%m/%d %H:%M"
+        pm: 午後

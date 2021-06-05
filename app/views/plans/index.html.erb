@@ -1,0 +1,63 @@
+<div class="h4 ml-3 mt-2">
+<%= l Date.today, format: :long %>
+</div>
+
+<div style="height: 100vh; width: 100vx;">
+  <div class="col mx-1 mt-2">
+  <%= month_calendar events: @plans do |date, plans| %>
+    <div style="height: 10vh; width: 11vw; overflow: scroll;">
+      <%= date.day%>
+        <% plans.each do |plan| %>
+          <div style="color: black;">
+          <%= plan.task %>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+  </div>
+
+
+  <nav class="navbar nav navbar-light mx-2" style="background-color: #e3f2fd;">
+    <li class="nav-item pt-2">
+      <h1 class="navbar-brand ml-2" aria-current="page">Plan</h1>
+    </li>
+    <li class="nav-item">
+      <%= link_to "　登録　", new_plan_path, class: "btn btn-outline-primary me-md-2 mb-3 ml-2 mt-3 mr-3" %>
+    </li>
+  </nav>
+
+  <div class="col mx-1 mt-2" style="overflow: scroll; height: 50vh; width: 100vx">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">開始時間</th>
+          <th scope="col">タスク</th>
+          <th scope="col">目標</th>
+          <th scope="col"></th>
+          <th scope="col">メモ</th>
+          <th scope="col"></th>
+          <th scope="col">状態</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      
+    <div>    
+      <% @plans.each do |t| %>
+        <tbody>
+          <tr>
+            <td><%= l t.start_time %></td>
+            <td ><%= t.task %></td>
+            <td colspan="2"><%= t.detail %></td>
+            <td colspan="2"><%= t.memo %></td>
+            <td><%= link_to "完了", "#" %></td>
+            <td><%= link_to "編集", edit_plan_path(@plans.ids) %></td>
+            
+          </tr>
+        </tbody>
+      <% end %>
+    </div>
+  </table>
+  </div>
+  
+</div>
