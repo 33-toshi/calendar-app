@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'plans#index'
   resources :plans
   resources :users
+  get 'plans/:id', to: 'plans#checked'
 end

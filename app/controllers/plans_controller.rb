@@ -19,6 +19,18 @@ class PlansController < ApplicationController
     end
   end
 
+  def checked
+    plan = Plan.find(params[:id])
+    if plan.checked
+      plan.update(checked: false)
+    else
+      plan.update(checked: true)
+    end
+
+    item = Plan.find(params[:id])
+    render json: { plan: item }
+  end
+
   def destroy
     plan = Plan.find(params[:id])
     plan.destroy

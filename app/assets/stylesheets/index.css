@@ -4,3 +4,7 @@
 .mypage {
   width: 110px;
 }
+
+div[plan-date="true"] {
+  background: #30d2f2;
+}

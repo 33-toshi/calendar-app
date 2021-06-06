@@ -1,3 +1,5 @@
+<!--% if current_user.id == Plan.find(params[:id]).user_id %-->
+
 <div class="h4 ml-3 mt-2">
 <%= l Date.today, format: :long %>
 </div>
@@ -50,8 +52,10 @@
             <td ><%= t.task %></td>
             <td colspan="2"><%= t.detail %></td>
             <td colspan="2"><%= t.memo %></td>
-            <td><%= link_to "完了", "#" %></td>
-            <td><%= link_to "編集", edit_plan_path(@plans.ids) %></td>
+            <div class="plan" data-id=<%= t.id %> data-check=<%= t.checked %>>
+            <td><%= link_to "完了", plan_path(@plans.ids),class: "btn btn-outline-info" %></td>
+            </div>
+            <td><%= link_to "編集", edit_plan_path(@plans.ids), class:"btn btn-outline-dark" %></td>
             
           </tr>
         </tbody>
@@ -61,3 +65,45 @@
   </div>
   
 </div>
+
+<!--% else %>
+
+<div class="h4 ml-3 mt-2">
+<%= l Date.today, format: :long %>
+</div>
+
+<div style="height: 100vh; width: 100vx;">
+  <div class="col mx-1 mt-2">
+    <%= month_calendar do |date| %>
+      <div style="height: 10vh; width: 11vw; overflow: scroll;">
+        <%= date.day%>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<nav class="navbar nav navbar-light mx-2" style="background-color: #e3f2fd;">
+  <li class="nav-item pt-2">
+    <h1 class="navbar-brand ml-2" aria-current="page">Plan</h1>
+  </li>
+</nav>
+
+<div class="col mx-1 mt-2" style="overflow: scroll; height: 50vh; width: 100vx">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">開始時間</th>
+        <th scope="col">タスク</th>
+        <th scope="col">目標</th>
+        <th scope="col"></th>
+        <th scope="col">メモ</th>
+        <th scope="col"></th>
+        <th scope="col">状態</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<% end %-->
