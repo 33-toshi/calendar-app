@@ -1,24 +1,16 @@
-# README
+# Routine Calendar
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+イベントをきめて、カレンダーに表示させることができます。
+イベントにはタスク、詳細、メモの３つのフォーマットがあり、自由に入力できます。
+ログイン機能があります。
 
-Things you may want to cover:
+## 制作背景
+学習や筋トレなどを習慣化したい時に、管理ができてモチベーション維持にもなるアプリがほしいと思いました。
+カレンダーに目標となるタスクが表示され、タスクをできたら完了ボタンを押すことでカレンダーに完了のマークがつくことで
+ひと目でどれだけやってきたのかがわかるアプリにしたいと思いました。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 今後実装したいこと
+完了ボタンの実装
+ログイン者のイベントのみの表示
+積み上げたタスクをわかりやすくする機能（レベルアップのような要素)
