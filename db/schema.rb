@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_034300) do
     t.text "detail"
     t.text "memo"
     t.datetime "start_time"
+    t.boolean "checked"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
