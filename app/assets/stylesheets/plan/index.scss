@@ -1,0 +1,84 @@
+div[plan-date="true"] {
+  background: #30d2f2;
+}
+
+.top-page-header {
+  width: 100vw;
+  padding: 10px 0 20px 0;
+  position: fixed 
+  top 0;
+  height: 20vh;
+  background-image: image-url('estee-jan.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+}
+
+.header-top{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0 30px 0;
+}
+
+.lists-right {
+  display: flex;
+  list-style: none;
+  margin: 0 30px 0 auto;
+}
+
+.header-title {
+  font-size: 40px;
+  text-decoration: none;
+  color: #e2dddd;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+  margin-left: 4%;
+}
+
+.login {
+  text-decoration: none;
+  margin-right: 3vw;
+}
+
+.sign-up {
+  text-decoration: none;
+}
+
+.btn {
+  width: 100px;
+}
+
+.header-today {
+  font-size: 25px;
+  text-decoration: none;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: whitesmoke;
+  margin-left: 4%;
+}
+
+.plan-list {
+  background-color: #e3f2fd;
+  height: 8vh;
+}
+.plan-content {
+  align-items: center;
+  display: flex;
+
+}
+
+.navbar-brand {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.plans-list {
+  overflow: scroll; 
+  height: 50vh; 
+  width: 100vx;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-image: image-url('mathyas.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right bottom;
+  font-size: 18px;
+}

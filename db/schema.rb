@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2021_06_05_034300) do
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "task"
-    t.text "detail"
+    t.string "title"
+    t.text "task"
     t.text "memo"
-    t.datetime "start_time"
+    t.date "start_time"
     t.boolean "checked"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
