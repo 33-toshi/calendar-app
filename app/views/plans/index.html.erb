@@ -25,7 +25,7 @@
 
 
 <div style="height: 100vh; width: 100vx;">
-  <div class="col mx-1 mt-2">
+  <div class="col">
   <%= month_calendar events: @plans do |date, plans| %>
     <div style="height: 10vh; width: 11vw; overflow: scroll;">
       <%= date.day%>
@@ -39,7 +39,7 @@
   </div>
 
 
-  <nav class="plan-list navbar nav navbar-light mx-2">
+  <nav class="plan-list navbar nav navbar-light">
     <div class="plan-content">
       <li class="nav-item pt-2">
         <h1 class="navbar-brand ml-2" aria-current="page">Plan</h1>
@@ -50,45 +50,41 @@
     </div>
   </nav>
 
-  <div class="plans-list col mx-1 mt-2">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">日程</th>
-          <th scope="col">タイトル</th>
-          <th scope="col">タスク</th>
-          <th scope="col"></th>
-          <th scope="col">メモ</th>
-          <th scope="col"></th>
-          <th scope="col">状態</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-
-      
-    <div>    
-      <% @plans.each do |plan| %>
-        <tbody>
+  <div class="plans-list">
+  
+    <div class="plan-item">
+      <table class="table">
+        <thead>
           <tr>
-            <td><%= l plan.start_time %></td>
-            <td ><%= plan.title %></td>
-            <td colspan="2"><%= plan.task %></td>
-            <td colspan="2"><%= plan.memo %></td>
-            <td><button type="button" class="plan btn btn-outline-light" data-id=<%= plan.id %> data-check=<%= plan.checked %>>完了</button></td>
-            <td><%= link_to "編集", edit_plan_path(@plans.ids), class:"btn btn-outline-dark" %></td>
-            
+            <th scope="col">日程</th>
+            <th scope="col">タイトル</th>
+            <th scope="col">タスク</th>
+            <th scope="col"></th>
+            <th scope="col">メモ</th>
+            <th scope="col"></th>
+            <th scope="col">状態</th>
+            <th scope="col"></th>
           </tr>
-        </tbody>
-      <% end %>
+        </thead>
+
+        
+        <% @plans.each do |plan| %>
+          <tbody>
+            <tr>
+              <td><%= l plan.start_time %></td>
+              <td ><%= plan.title %></td>
+              <td colspan="2"><%= plan.task %></td>
+              <td colspan="2"><%= plan.memo %></td>
+              <td><button type="button" class="plan btn btn-outline-info" data-id=<%= plan.id %> data-check=<%= plan.checked %>>完了</button></td>
+              <td><%= link_to "編集", edit_plan_path(@plans.ids), class:"btn btn-outline-dark" %></td>
+              
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
     </div>
-    </table>
   </div>
   
 </div>
 
-<nav class="navbar fixed-bottom navbar-light bg-light">
-    <div class="container-fluid">
-      <span class="navbar-brand">2021 Plan Calendar</span>
-    </div>
-</nav>
 
