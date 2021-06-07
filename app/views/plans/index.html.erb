@@ -1,8 +1,28 @@
-<!--% if current_user.id == Plan.find(params[:id]).user_id %-->
+<header class="top-page-header">
+  <div class="header-top">
+    <div class="header-title">Plan Calendar</div>
+<!--nav class="navbar navbar-expand-lg navbar-dark ">
+    <div class="container-fluid">
 
-<div class="h4 ml-3 mt-2">
-<%= l Date.today, format: :long %>
-</div>
+    <form class="d-flex justify-content-end"-->
+    <div class="nav">
+      <ul class="lists-right">
+        <% if user_signed_in? %>
+          <%= link_to current_user.nickname, user_path(current_user), class:"user-nickname btn btn-outline-dark"%>
+          <%= link_to "ログアウト", destroy_user_session_path, class:"logout btn btn-outline-dark ml-2", method: :delete %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "login btn btn-outline-dark"  %>
+          <%= link_to "新規登録", new_user_registration_path, class: "sign-up btn btn-outline-dark ml-2" %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="header-today">
+    <%= l Date.today, format: :long %>
+  </div>
+</header>
+
+
 
 <div style="height: 100vh; width: 100vx;">
   <div class="col mx-1 mt-2">
@@ -19,22 +39,24 @@
   </div>
 
 
-  <nav class="navbar nav navbar-light mx-2" style="background-color: #e3f2fd;">
-    <li class="nav-item pt-2">
-      <h1 class="navbar-brand ml-2" aria-current="page">Plan</h1>
-    </li>
-    <li class="nav-item">
-      <%= link_to "　登録　", new_plan_path, class: "btn btn-outline-primary me-md-2 mb-3 ml-2 mt-3 mr-3" %>
-    </li>
+  <nav class="plan-list navbar nav navbar-light mx-2">
+    <div class="plan-content">
+      <li class="nav-item pt-2">
+        <h1 class="navbar-brand ml-2" aria-current="page">Plan</h1>
+      </li>
+      <li class="nav-item">
+        <%= link_to "登録", new_plan_path, class: "btn btn-outline-primary me-md-2" %>
+      </li>
+    </div>
   </nav>
 
-  <div class="col mx-1 mt-2" style="overflow: scroll; height: 50vh; width: 100vx">
+  <div class="plans-list col mx-1 mt-2">
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">開始時間</th>
+          <th scope="col">日程</th>
+          <th scope="col">タイトル</th>
           <th scope="col">タスク</th>
-          <th scope="col">目標</th>
           <th scope="col"></th>
           <th scope="col">メモ</th>
           <th scope="col"></th>
@@ -45,65 +67,28 @@
 
       
     <div>    
-      <% @plans.each do |t| %>
+      <% @plans.each do |plan| %>
         <tbody>
           <tr>
-            <td><%= l t.start_time %></td>
-            <td ><%= t.task %></td>
-            <td colspan="2"><%= t.detail %></td>
-            <td colspan="2"><%= t.memo %></td>
-            <div class="plan" data-id=<%= t.id %> data-check=<%= t.checked %>>
-            <td><%= link_to "完了", plan_path(@plans.ids),class: "btn btn-outline-info" %></td>
-            </div>
+            <td><%= l plan.start_time %></td>
+            <td ><%= plan.title %></td>
+            <td colspan="2"><%= plan.task %></td>
+            <td colspan="2"><%= plan.memo %></td>
+            <td><button type="button" class="plan btn btn-outline-light" data-id=<%= plan.id %> data-check=<%= plan.checked %>>完了</button></td>
             <td><%= link_to "編集", edit_plan_path(@plans.ids), class:"btn btn-outline-dark" %></td>
             
           </tr>
         </tbody>
       <% end %>
     </div>
-  </table>
+    </table>
   </div>
   
 </div>
 
-<!--% else %>
-
-<div class="h4 ml-3 mt-2">
-<%= l Date.today, format: :long %>
-</div>
-
-<div style="height: 100vh; width: 100vx;">
-  <div class="col mx-1 mt-2">
-    <%= month_calendar do |date| %>
-      <div style="height: 10vh; width: 11vw; overflow: scroll;">
-        <%= date.day%>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
-<nav class="navbar nav navbar-light mx-2" style="background-color: #e3f2fd;">
-  <li class="nav-item pt-2">
-    <h1 class="navbar-brand ml-2" aria-current="page">Plan</h1>
-  </li>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand">2021 Plan Calendar</span>
+    </div>
 </nav>
 
-<div class="col mx-1 mt-2" style="overflow: scroll; height: 50vh; width: 100vx">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">開始時間</th>
-        <th scope="col">タスク</th>
-        <th scope="col">目標</th>
-        <th scope="col"></th>
-        <th scope="col">メモ</th>
-        <th scope="col"></th>
-        <th scope="col">状態</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-  </table>
-</div>
-
-<% end %-->

@@ -1,18 +1,17 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="login-container">
+  <div class="login-form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <h2 class="col ml-2 mt-2">ログイン</h2>
-    <label for="inputEmail3" class="col-form-label ml-2">メールアドレス</label>
-    <div class="col-6">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"inputEmil3" %>
+    <h2 class="col ml-2 mt-2">ログイン</h2>
+    <div class="col-12">
+      <label for="inputEmail3" class="col-form-label ml-2">メールアドレス</label>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"inputEmil3" %>
+
+      <label for="inputPassword3" class="col-form-label ml-2">パスワード</label>
+      <%= f.password_field :password, autocomplete: "current-password", class:"form-control", id:"inputPassword3" %>
+        <%= f.submit "ログイン", class:"btn btn-outline-light mt-2" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "sign-up btn btn-outline-light mt-2 ml-2" %>
     </div>
-
-    <label for="inputPassword3" class="col-form-label ml-2">パスワード</label>
-    <div class="col-6">
-    <%= f.password_field :password, autocomplete: "current-password", class:"form-control", id:"inputPassword3" %>
-    </div>
-
-  <div class="actions mt-3 ml-3">
-    <%= f.submit "ログイン", class:"btn btn-primary" %>
+    <% end %>
   </div>
-
-<% end %>
+</div>

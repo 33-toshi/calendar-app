@@ -20,6 +20,7 @@ class PlansController < ApplicationController
   end
 
   def checked
+    binding.pry
     plan = Plan.find(params[:id])
     if plan.checked
       plan.update(checked: false)
@@ -44,12 +45,13 @@ class PlansController < ApplicationController
   def update
     plan = Plan.find(params[:id])
     plan.update(plan_params)
+    redirect_to root_path
   end
 
   private
 
   def plan_params
-    params.require(:plan).permit(:task, :detail, :memo, :start_time).merge(user_id: current_user.id)
+    params.require(:plan).permit(:title, :task, :memo, :start_time).merge(user_id: current_user.id)
   end
   
 end
