@@ -23,6 +23,29 @@ aaa111
 日にちを入力することでカレンダーと連動し、カレンダーにタイトルが表示されます。<br>
 [![Image from Gyazo](https://i.gyazo.com/4c41da9993d86055bf2c77855efdb447.jpg)](https://gyazo.com/4c41da9993d86055bf2c77855efdb447)
 
+## テーブル
+user
+|column      |type   |option
+|------------|-------|------------
+|nickname    |string |null:false
+|email       |string |null:false
+|password    |string |null:false
+
+has_many :plan
+
+plan
+|column    |type   |
+|----------|-------|
+|title     |string |
+|task      |text   |
+|memo      |text   |
+|start_time|date   |
+|checked   |boolean|
+
+belongs_to :user
+
+
+
 
 ## 制作背景
 学習や筋トレなどを習慣化したい時に、管理ができてモチベーション維持にもなるアプリがほしいと思いました。<br>
