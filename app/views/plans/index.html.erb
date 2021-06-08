@@ -62,7 +62,7 @@
             <th scope="col"></th>
             <th scope="col">メモ</th>
             <th scope="col"></th>
-            <th scope="col">状態</th>
+            <!--th scope="col">状態</th-->
             <th scope="col"></th>
           </tr>
         </thead>
@@ -75,7 +75,7 @@
               <td ><%= plan.title %></td>
               <td colspan="2"><%= plan.task %></td>
               <td colspan="2"><%= plan.memo %></td>
-              <td><button type="button" class="plan btn btn-outline-info" data-id=<%= plan.id %> data-check=<%= plan.checked %>>完了</button></td>
+              <!--td><button type="button" class="plan btn btn-outline-info" data-id=<%= plan.id %> data-check=<%= plan.checked %>>完了</button></td-->
               <td><%= link_to "編集", edit_plan_path(@plans.ids), class:"btn btn-outline-dark" %></td>
               
             </tr>
