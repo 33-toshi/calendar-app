@@ -2,7 +2,7 @@ class PlansController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @plans = Plan.order("start_time DESC")
+    @plans = Plan.where(user_id: current_user.id, start_time: Date.today).order("start_time ASC")
   end
 
   def new
